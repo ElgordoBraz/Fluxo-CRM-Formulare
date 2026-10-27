@@ -1,0 +1,935 @@
+{
+  "nodesData": [
+    {
+      "id": "leg_title",
+      "label": "REGRAS E PAPÉIS\nÚnico Contato",
+      "type": "header",
+      "x": 50,
+      "y": 50
+    },
+    {
+      "id": "leg_sys",
+      "label": "⚙️ AUTOMAÇÃO / SISTEMA\nResponsável por:\n• Controlar a sequência temporal\n• Disparar mensagens e templates",
+      "type": "system",
+      "x": 50,
+      "y": 150
+    },
+    {
+      "id": "leg_ia",
+      "label": "🤖 IA CONVERSACIONAL\nResponsável EXCLUSIVAMENTE por:\n• Interpretar a mensagem do cliente\n• Conversar e tirar dúvidas da base\n• Conduzir a conversa",
+      "type": "message",
+      "x": 50,
+      "y": 350
+    },
+    {
+      "id": "leg_sum",
+      "label": "📄 RESUMO DA TRATATIVA\nContexto gerado sempre que a IA sai de cena. Fornece ao humano as informações (motivo, intenção) para ele não começar do zero.",
+      "type": "summary",
+      "x": 50,
+      "y": 580
+    },
+    {
+      "id": "leg_hum",
+      "label": "👤 ATENDENTE HUMANO\nResponsável por:\n• Negociações, descontos, fechamentos\n• Ações de sistema, CRM e pagamentos\n• Tudo que for operacional e clínico",
+      "type": "action",
+      "x": 50,
+      "y": 820
+    },
+    {
+      "id": "f1_head",
+      "label": "FLUXO 1\nREATIVAÇÃO DE ORÇAMENTOS",
+      "type": "header",
+      "x": 500,
+      "y": 50
+    },
+    {
+      "id": "f1_start",
+      "label": "ORÇAMENTO ENVIADO\nFórmula Manipulada",
+      "type": "process",
+      "x": 500,
+      "y": 150
+    },
+    {
+      "id": "f1_wait",
+      "label": "AGUARDA INTERAÇÃO\nCliente respondeu?",
+      "type": "condition",
+      "x": 500,
+      "y": 300
+    },
+    {
+      "id": "f1_1h",
+      "label": "AUTOMAÇÃO: FOLLOW-UP (Ex: 1 hora)\n\nOlá [Nome]!\nConseguiu ver o orçamento? Qualquer dúvida, estou aqui! 💚",
+      "type": "system",
+      "x": 500,
+      "y": 480
+    },
+    {
+      "id": "f1_resp_1h",
+      "label": "Cliente respondeu?",
+      "type": "condition",
+      "x": 500,
+      "y": 680
+    },
+    {
+      "id": "f1_ia_1h",
+      "label": "🤖 ENCAMINHA PARA IA\n(IA assume a conversa -> Ver bloco à direita)",
+      "type": "message",
+      "x": 900,
+      "y": 680
+    },
+    {
+      "id": "f1_4h",
+      "label": "AUTOMAÇÃO: FOLLOW-UP (Ex: 4 horas)\n\n[Nome], ainda tem interesse? Estamos com tudo pronto por aqui! ✨",
+      "type": "system",
+      "x": 500,
+      "y": 850
+    },
+    {
+      "id": "f1_resp_4h",
+      "label": "Cliente respondeu?",
+      "type": "condition",
+      "x": 500,
+      "y": 1050
+    },
+    {
+      "id": "f1_ia_4h",
+      "label": "🤖 ENCAMINHA PARA IA\n(IA assume a conversa -> Ver bloco à direita)",
+      "type": "message",
+      "x": 900,
+      "y": 1050
+    },
+    {
+      "id": "f1_24h",
+      "label": "AUTOMAÇÃO: PESQUISA (Ex: 24 horas)\n\nNotamos que não finalizou. Poderia nos dizer rapidamente o motivo?\n(Preço, Prazo, Outro...)",
+      "type": "system",
+      "x": 500,
+      "y": 1220
+    },
+    {
+      "id": "f1_resp_24h",
+      "label": "Cliente respondeu?",
+      "type": "condition",
+      "x": 500,
+      "y": 1420
+    },
+    {
+      "id": "f1_ia_24h",
+      "label": "🤖 ENCAMINHA PARA IA\n(IA assume a conversa -> Ver bloco à direita)",
+      "type": "message",
+      "x": 900,
+      "y": 1420
+    },
+    {
+      "id": "f1_end",
+      "label": "TRATAMENTO COMERCIAL\n\nRespostas da pesquisa ficam disponíveis para análise da equipe comercial. Encerramento automático.",
+      "type": "info",
+      "x": 500,
+      "y": 1600
+    },
+    {
+      "id": "f1_ia_start",
+      "label": "🤖 IA CONVERSACIONAL ASSUME\nIdentifica a intenção da resposta",
+      "type": "message",
+      "x": 2300,
+      "y": 300
+    },
+    {
+      "id": "f1_int_a",
+      "label": "INTENÇÃO: QUER COMPRAR\nEx: 'Quero sim', 'Pode fazer'",
+      "type": "process",
+      "x": 1300,
+      "y": 500
+    },
+    {
+      "id": "f1_ia_a",
+      "label": "POSTURA DA IA:\nReconhece a intenção de compra, conduz a conversa e orienta sobre o próximo passo. Acolhe o cliente.",
+      "type": "message",
+      "x": 1300,
+      "y": 680
+    },
+    {
+      "id": "f1_sum_a",
+      "label": "RESUMO DA TRATATIVA\n• Cliente demonstrou intenção de compra.\n• IA confirmou interesse e conduziu a conversa até o próximo passo.\n• Atendente deve assumir para concluir a operação.",
+      "type": "summary",
+      "x": 1300,
+      "y": 920
+    },
+    {
+      "id": "f1_hum_a",
+      "label": "👤 ATENDENTE HUMANO\nAssume para processar o fechamento sistêmico e registrar a venda no CRM.",
+      "type": "action",
+      "x": 1300,
+      "y": 1180
+    },
+    {
+      "id": "f1_int_b",
+      "label": "INTENÇÃO: OBJEÇÃO DE PREÇO\nEx: 'Tem desconto?', 'Caro'",
+      "type": "process",
+      "x": 1700,
+      "y": 500
+    },
+    {
+      "id": "f1_ia_b",
+      "label": "POSTURA DA IA:\nAdota postura consultiva, entende a objeção e explica os diferenciais disponíveis. Não promete desconto.",
+      "type": "message",
+      "x": 1700,
+      "y": 680
+    },
+    {
+      "id": "f1_sum_b",
+      "label": "RESUMO DA TRATATIVA\n• Cliente apresentou objeção de preço.\n• IA explicou diferenciais sem autorizar desconto.\n• Atendente deve assumir para avaliar condição comercial.",
+      "type": "summary",
+      "x": 1700,
+      "y": 920
+    },
+    {
+      "id": "f1_hum_b",
+      "label": "👤 ATENDENTE HUMANO\nAssume a negociação para avaliar se aplica condição especial ou desconto.",
+      "type": "action",
+      "x": 1700,
+      "y": 1180
+    },
+    {
+      "id": "f1_int_c",
+      "label": "INTENÇÃO: COMPRAR DEPOIS\nEx: 'Vou pensar', 'Mês que vem'",
+      "type": "process",
+      "x": 2100,
+      "y": 500
+    },
+    {
+      "id": "f1_ia_c",
+      "label": "POSTURA DA IA:\nRespeita o momento, não pressiona e entende o contexto de retorno de forma amigável.",
+      "type": "message",
+      "x": 2100,
+      "y": 680
+    },
+    {
+      "id": "f1_sum_c",
+      "label": "RESUMO DA TRATATIVA\n• Cliente informou que pretende comprar posteriormente.\n• IA conversou sobre o momento do cliente sem pressionar.\n• Atendente assume para definir continuidade.",
+      "type": "summary",
+      "x": 2100,
+      "y": 920
+    },
+    {
+      "id": "f1_hum_c",
+      "label": "👤 ATENDENTE HUMANO\nAssume para definir a melhor continuidade comercial e programar follow-ups sistêmicos.",
+      "type": "action",
+      "x": 2100,
+      "y": 1180
+    },
+    {
+      "id": "f1_int_d",
+      "label": "INTENÇÃO: OUTRO LUGAR\nEx: 'Já fiz em outra farmácia'",
+      "type": "process",
+      "x": 2500,
+      "y": 500
+    },
+    {
+      "id": "f1_ia_d",
+      "label": "POSTURA DA IA:\nEntende o cenário, encerra cordialmente e, quando houver abertura, busca compreender o motivo.",
+      "type": "message",
+      "x": 2500,
+      "y": 680
+    },
+    {
+      "id": "f1_sum_d",
+      "label": "RESUMO DA TRATATIVA\n• Cliente informou compra em outro estabelecimento.\n• Principal motivo levantado no contexto da conversa.\n• Atendente recebe o contexto para eventual tratativa.",
+      "type": "summary",
+      "x": 2500,
+      "y": 920
+    },
+    {
+      "id": "f1_hum_d",
+      "label": "👤 ATENDENTE HUMANO\nAnalisa o contexto e realiza o processo de classificação/motivo de perda de maneira sistêmica.",
+      "type": "action",
+      "x": 2500,
+      "y": 1180
+    },
+    {
+      "id": "f1_int_e",
+      "label": "INTENÇÃO: DESISTÊNCIA\nEx: 'Não tenho mais interesse'",
+      "type": "process",
+      "x": 2900,
+      "y": 500
+    },
+    {
+      "id": "f1_ia_e",
+      "label": "POSTURA DA IA:\nRespeita a decisão prontamente, não insiste e encerra a conversa de maneira muito gentil.",
+      "type": "message",
+      "x": 2900,
+      "y": 680
+    },
+    {
+      "id": "f1_sum_e",
+      "label": "RESUMO DA TRATATIVA\n• Cliente solicitou o cancelamento/desistência do orçamento.\n• IA encerrou o contato cordialmente sem forçar a venda.\n• Atendimento transferido para encerramento.",
+      "type": "summary",
+      "x": 2900,
+      "y": 920
+    },
+    {
+      "id": "f1_hum_e",
+      "label": "👤 ATENDENTE / FINALIZAÇÃO HUMANA\nFinaliza a rotina comercialmente para limpeza da esteira.",
+      "type": "action",
+      "x": 2900,
+      "y": 1180
+    },
+    {
+      "id": "f1_int_f",
+      "label": "INTENÇÃO: DÚVIDAS\nEx: 'Como funciona?', 'Entrega?'",
+      "type": "process",
+      "x": 3300,
+      "y": 500
+    },
+    {
+      "id": "f1_ia_f",
+      "label": "POSTURA DA IA:\nResponde utilizando EXCLUSIVAMENTE a base de conhecimento. Ao perceber que precisa de intervenção, passa a vez.",
+      "type": "message",
+      "x": 3300,
+      "y": 680
+    },
+    {
+      "id": "f1_sum_f",
+      "label": "RESUMO DA TRATATIVA\n• Cliente apresentou dúvida técnica ou operacional.\n• Informações já fornecidas e escopo esgotado da IA.\n• Atendente recebe para prosseguir com o suporte.",
+      "type": "summary",
+      "x": 3300,
+      "y": 920
+    },
+    {
+      "id": "f1_hum_f",
+      "label": "👤 ATENDENTE HUMANO\nAssume para esclarecer dúvidas específicas e complexas.",
+      "type": "action",
+      "x": 3300,
+      "y": 1180
+    },
+    {
+      "id": "f2_head",
+      "label": "FLUXO 2\nPÓS-VENDA E RECOMPRA",
+      "type": "header",
+      "x": 4500,
+      "y": 50
+    },
+    {
+      "id": "f2_start",
+      "label": "COMPRA REALIZADA\nFórmula de Uso Contínuo",
+      "type": "process",
+      "x": 4500,
+      "y": 150
+    },
+    {
+      "id": "f2_ident",
+      "label": "AUTOMAÇÃO:\nDURAÇÃO DA FÓRMULA INFORMADA",
+      "type": "system",
+      "x": 4500,
+      "y": 300
+    },
+    {
+      "id": "f2_1m",
+      "label": "RÉGUA: 1 MÊS",
+      "type": "condition",
+      "x": 3900,
+      "y": 480
+    },
+    {
+      "id": "f2_1m_d10",
+      "label": "Dia 10 (Acompanhamento)",
+      "type": "info",
+      "x": 3900,
+      "y": 620
+    },
+    {
+      "id": "f2_1m_d20",
+      "label": "Dia 20 (Recompra)",
+      "type": "info",
+      "x": 3900,
+      "y": 780
+    },
+    {
+      "id": "f2_1m_d25",
+      "label": "Dia 25 (Reforço)",
+      "type": "info",
+      "x": 3900,
+      "y": 940
+    },
+    {
+      "id": "f2_2m",
+      "label": "RÉGUA: 2 MESES",
+      "type": "condition",
+      "x": 4500,
+      "y": 480
+    },
+    {
+      "id": "f2_2m_d30",
+      "label": "Dia 30 (Acompanhamento)",
+      "type": "info",
+      "x": 4500,
+      "y": 620
+    },
+    {
+      "id": "f2_2m_d50",
+      "label": "Dia 50 (Recompra)",
+      "type": "info",
+      "x": 4500,
+      "y": 780
+    },
+    {
+      "id": "f2_2m_d55",
+      "label": "Dia 55 (Reforço)",
+      "type": "info",
+      "x": 4500,
+      "y": 940
+    },
+    {
+      "id": "f2_3m",
+      "label": "RÉGUA: 3 MESES",
+      "type": "condition",
+      "x": 5100,
+      "y": 480
+    },
+    {
+      "id": "f2_3m_d45",
+      "label": "Dia 45 (Acompanhamento)",
+      "type": "info",
+      "x": 5100,
+      "y": 620
+    },
+    {
+      "id": "f2_3m_d75",
+      "label": "Dia 75 (Recompra)",
+      "type": "info",
+      "x": 5100,
+      "y": 780
+    },
+    {
+      "id": "f2_3m_d85",
+      "label": "Dia 85 (Reforço)",
+      "type": "info",
+      "x": 5100,
+      "y": 940
+    },
+    {
+      "id": "f2_resp",
+      "label": "CLIENTE RESPONDEU\n(Interagiu em qualquer momento)",
+      "type": "condition",
+      "x": 4500,
+      "y": 1150
+    },
+    {
+      "id": "f2_ia_start",
+      "label": "🤖 IA CONVERSACIONAL ASSUME\nInterpreta a intenção da mensagem",
+      "type": "message",
+      "x": 4500,
+      "y": 1350
+    },
+    {
+      "id": "f2_int_1",
+      "label": "INTENÇÃO: RECOMPRAR",
+      "type": "process",
+      "x": 3600,
+      "y": 1550
+    },
+    {
+      "id": "f2_ia_1",
+      "label": "POSTURA DA IA: Reconhece recompra",
+      "type": "message",
+      "x": 3600,
+      "y": 1720
+    },
+    {
+      "id": "f2_sum_1",
+      "label": "RESUMO DA TRATATIVA",
+      "type": "summary",
+      "x": 3600,
+      "y": 1950
+    },
+    {
+      "id": "f2_hum_1",
+      "label": "👤 ATENDENTE HUMANO",
+      "type": "action",
+      "x": 3600,
+      "y": 2150
+    },
+    {
+      "id": "f2_int_2",
+      "label": "INTENÇÃO: AINDA TEM PRODUTO",
+      "type": "process",
+      "x": 4000,
+      "y": 1550
+    },
+    {
+      "id": "f2_ia_2",
+      "label": "POSTURA DA IA: Entende que tem produto",
+      "type": "message",
+      "x": 4000,
+      "y": 1720
+    },
+    {
+      "id": "f2_sum_2",
+      "label": "RESUMO DA TRATATIVA",
+      "type": "summary",
+      "x": 4000,
+      "y": 1950
+    },
+    {
+      "id": "f2_hum_2",
+      "label": "👤 ATENDENTE HUMANO",
+      "type": "action",
+      "x": 4000,
+      "y": 2150
+    },
+    {
+      "id": "f2_int_3",
+      "label": "INTENÇÃO: DÚVIDA DE USO",
+      "type": "process",
+      "x": 4400,
+      "y": 1550
+    },
+    {
+      "id": "f2_ia_3",
+      "label": "POSTURA DA IA: Responde da base",
+      "type": "message",
+      "x": 4400,
+      "y": 1720
+    },
+    {
+      "id": "f2_sum_3",
+      "label": "RESUMO DA TRATATIVA",
+      "type": "summary",
+      "x": 4400,
+      "y": 1950
+    },
+    {
+      "id": "f2_hum_3",
+      "label": "👤 TRANSFERE PARA HUMANO",
+      "type": "action",
+      "x": 4400,
+      "y": 2150
+    },
+    {
+      "id": "f2_int_4",
+      "label": "INTENÇÃO: RELATO CLÍNICO",
+      "type": "process",
+      "x": 4800,
+      "y": 1550
+    },
+    {
+      "id": "f2_ia_4",
+      "label": "POSTURA DA IA: Acolhe cliente",
+      "type": "message",
+      "x": 4800,
+      "y": 1720
+    },
+    {
+      "id": "f2_sum_4",
+      "label": "RESUMO DA TRATATIVA",
+      "type": "summary",
+      "x": 4800,
+      "y": 1950
+    },
+    {
+      "id": "f2_hum_4",
+      "label": "👤 FARMACÊUTICO / ATENDENTE",
+      "type": "action",
+      "x": 4800,
+      "y": 2150
+    },
+    {
+      "id": "f2_int_5",
+      "label": "INTENÇÃO: NÃO CONTINUAR",
+      "type": "process",
+      "x": 5200,
+      "y": 1550
+    },
+    {
+      "id": "f2_ia_5",
+      "label": "POSTURA DA IA: Respeita decisão",
+      "type": "message",
+      "x": 5200,
+      "y": 1720
+    },
+    {
+      "id": "f2_sum_5",
+      "label": "RESUMO DA TRATATIVA",
+      "type": "summary",
+      "x": 5200,
+      "y": 1950
+    },
+    {
+      "id": "f2_hum_5",
+      "label": "👤 ATENDENTE HUMANO",
+      "type": "action",
+      "x": 5200,
+      "y": 2150
+    },
+    {
+      "id": "f2_int_6",
+      "label": "INTENÇÃO: CONFUSO / ÁUDIO",
+      "type": "process",
+      "x": 5600,
+      "y": 1550
+    },
+    {
+      "id": "f2_ia_6",
+      "label": "POSTURA DA IA: Não adivinha, repassa",
+      "type": "message",
+      "x": 5600,
+      "y": 1720
+    },
+    {
+      "id": "f2_sum_6",
+      "label": "RESUMO DA TRATATIVA",
+      "type": "summary",
+      "x": 5600,
+      "y": 1950
+    },
+    {
+      "id": "f2_hum_6",
+      "label": "👤 ATENDENTE HUMANO",
+      "type": "action",
+      "x": 5600,
+      "y": 2150
+    }
+  ],
+  "connections": [
+    {
+      "from": "f1_head",
+      "to": "f1_start"
+    },
+    {
+      "from": "f1_start",
+      "to": "f1_wait"
+    },
+    {
+      "from": "f1_wait",
+      "to": "f1_1h"
+    },
+    {
+      "from": "f1_1h",
+      "to": "f1_resp_1h"
+    },
+    {
+      "from": "f1_resp_1h",
+      "to": "f1_4h"
+    },
+    {
+      "from": "f1_4h",
+      "to": "f1_resp_4h"
+    },
+    {
+      "from": "f1_resp_4h",
+      "to": "f1_24h"
+    },
+    {
+      "from": "f1_24h",
+      "to": "f1_resp_24h"
+    },
+    {
+      "from": "f1_resp_24h",
+      "to": "f1_end"
+    },
+    {
+      "from": "f1_resp_1h",
+      "to": "f1_ia_1h"
+    },
+    {
+      "from": "f1_resp_4h",
+      "to": "f1_ia_4h"
+    },
+    {
+      "from": "f1_resp_24h",
+      "to": "f1_ia_24h"
+    },
+    {
+      "from": "f1_wait",
+      "to": "f1_ia_start"
+    },
+    {
+      "from": "f1_ia_start",
+      "to": "f1_int_a"
+    },
+    {
+      "from": "f1_ia_start",
+      "to": "f1_int_b"
+    },
+    {
+      "from": "f1_ia_start",
+      "to": "f1_int_c"
+    },
+    {
+      "from": "f1_ia_start",
+      "to": "f1_int_d"
+    },
+    {
+      "from": "f1_ia_start",
+      "to": "f1_int_e"
+    },
+    {
+      "from": "f1_ia_start",
+      "to": "f1_int_f"
+    },
+    {
+      "from": "f1_int_a",
+      "to": "f1_ia_a"
+    },
+    {
+      "from": "f1_ia_a",
+      "to": "f1_sum_a"
+    },
+    {
+      "from": "f1_sum_a",
+      "to": "f1_hum_a"
+    },
+    {
+      "from": "f1_int_b",
+      "to": "f1_ia_b"
+    },
+    {
+      "from": "f1_ia_b",
+      "to": "f1_sum_b"
+    },
+    {
+      "from": "f1_sum_b",
+      "to": "f1_hum_b"
+    },
+    {
+      "from": "f1_int_c",
+      "to": "f1_ia_c"
+    },
+    {
+      "from": "f1_ia_c",
+      "to": "f1_sum_c"
+    },
+    {
+      "from": "f1_sum_c",
+      "to": "f1_hum_c"
+    },
+    {
+      "from": "f1_int_d",
+      "to": "f1_ia_d"
+    },
+    {
+      "from": "f1_ia_d",
+      "to": "f1_sum_d"
+    },
+    {
+      "from": "f1_sum_d",
+      "to": "f1_hum_d"
+    },
+    {
+      "from": "f1_int_e",
+      "to": "f1_ia_e"
+    },
+    {
+      "from": "f1_ia_e",
+      "to": "f1_sum_e"
+    },
+    {
+      "from": "f1_sum_e",
+      "to": "f1_hum_e"
+    },
+    {
+      "from": "f1_int_f",
+      "to": "f1_ia_f"
+    },
+    {
+      "from": "f1_ia_f",
+      "to": "f1_sum_f"
+    },
+    {
+      "from": "f1_sum_f",
+      "to": "f1_hum_f"
+    },
+    {
+      "from": "f2_head",
+      "to": "f2_start"
+    },
+    {
+      "from": "f2_start",
+      "to": "f2_ident"
+    },
+    {
+      "from": "f2_ident",
+      "to": "f2_1m"
+    },
+    {
+      "from": "f2_ident",
+      "to": "f2_2m"
+    },
+    {
+      "from": "f2_ident",
+      "to": "f2_3m"
+    },
+    {
+      "from": "f2_1m",
+      "to": "f2_1m_d10"
+    },
+    {
+      "from": "f2_1m_d10",
+      "to": "f2_1m_d20"
+    },
+    {
+      "from": "f2_1m_d20",
+      "to": "f2_1m_d25"
+    },
+    {
+      "from": "f2_2m",
+      "to": "f2_2m_d30"
+    },
+    {
+      "from": "f2_2m_d30",
+      "to": "f2_2m_d50"
+    },
+    {
+      "from": "f2_2m_d50",
+      "to": "f2_2m_d55"
+    },
+    {
+      "from": "f2_3m",
+      "to": "f2_3m_d45"
+    },
+    {
+      "from": "f2_3m_d45",
+      "to": "f2_3m_d75"
+    },
+    {
+      "from": "f2_3m_d75",
+      "to": "f2_3m_d85"
+    },
+    {
+      "from": "f2_1m_d10",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_1m_d20",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_1m_d25",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_2m_d30",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_2m_d50",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_2m_d55",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_3m_d45",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_3m_d75",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_3m_d85",
+      "to": "f2_resp"
+    },
+    {
+      "from": "f2_resp",
+      "to": "f2_ia_start"
+    },
+    {
+      "from": "f2_ia_start",
+      "to": "f2_int_1"
+    },
+    {
+      "from": "f2_ia_start",
+      "to": "f2_int_2"
+    },
+    {
+      "from": "f2_ia_start",
+      "to": "f2_int_3"
+    },
+    {
+      "from": "f2_ia_start",
+      "to": "f2_int_4"
+    },
+    {
+      "from": "f2_ia_start",
+      "to": "f2_int_5"
+    },
+    {
+      "from": "f2_ia_start",
+      "to": "f2_int_6"
+    },
+    {
+      "from": "f2_int_1",
+      "to": "f2_ia_1"
+    },
+    {
+      "from": "f2_ia_1",
+      "to": "f2_sum_1"
+    },
+    {
+      "from": "f2_sum_1",
+      "to": "f2_hum_1"
+    },
+    {
+      "from": "f2_int_2",
+      "to": "f2_ia_2"
+    },
+    {
+      "from": "f2_ia_2",
+      "to": "f2_sum_2"
+    },
+    {
+      "from": "f2_sum_2",
+      "to": "f2_hum_2"
+    },
+    {
+      "from": "f2_int_3",
+      "to": "f2_ia_3"
+    },
+    {
+      "from": "f2_ia_3",
+      "to": "f2_sum_3"
+    },
+    {
+      "from": "f2_sum_3",
+      "to": "f2_hum_3"
+    },
+    {
+      "from": "f2_int_4",
+      "to": "f2_ia_4"
+    },
+    {
+      "from": "f2_ia_4",
+      "to": "f2_sum_4"
+    },
+    {
+      "from": "f2_sum_4",
+      "to": "f2_hum_4"
+    },
+    {
+      "from": "f2_int_5",
+      "to": "f2_ia_5"
+    },
+    {
+      "from": "f2_ia_5",
+      "to": "f2_sum_5"
+    },
+    {
+      "from": "f2_sum_5",
+      "to": "f2_hum_5"
+    },
+    {
+      "from": "f2_int_6",
+      "to": "f2_ia_6"
+    },
+    {
+      "from": "f2_ia_6",
+      "to": "f2_sum_6"
+    },
+    {
+      "from": "f2_sum_6",
+      "to": "f2_hum_6"
+    }
+  ],
+  "atualizadoEm": "2026-10-27T18:08:25.963Z"
+}
