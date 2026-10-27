@@ -587,6 +587,14 @@
       "type": "action",
       "x": 5600,
       "y": 2150
+    },
+    {
+      "id": "n_mvr01cjv",
+      "label": "card teste",
+      "type": "process",
+      "x": 1506,
+      "y": 293,
+      "width": 300
     }
   ],
   "connections": [
@@ -931,5 +939,5 @@
       "to": "f2_hum_6"
     }
   ],
-  "atualizadoEm": "2026-10-27T18:08:25.963Z"
+  "atualizadoEm": "2026-10-27T18:08:49.913Z"
 }
