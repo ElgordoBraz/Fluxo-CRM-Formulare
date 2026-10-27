@@ -584,7 +584,28 @@
         ];
 
         const LS_CFG = 'fluxo_ghcfg_v1', LS_CACHE = 'fluxo_dados_v1';
-        let cfg = JSON.parse(localStorage.getItem(LS_CFG) || 'null') || { owner:'', repo:'', branch:'main', path:'dados.json', token:'' };
+                // Repo fixo no código: qualquer visitante, em qualquer navegador,
+        // já sabe onde ler o dados.json — sem configurar nada.
+        const REPO_PADRAO = { owner: 'elgordobraz', repo: 'Fluxo-CRM-Formulare', branch: 'main', path: 'dados.json' };
+
+        function cfgInicial() {
+            const salvo = JSON.parse(localStorage.getItem(LS_CFG) || 'null');
+            let auto = null;
+            const m = location.hostname.match(/^([^.]+)\.github\.io$/);
+            if (m) {
+                const seg = location.pathname.split('/').filter(Boolean)[0];
+                if (seg) auto = { owner: m[1], repo: seg, branch: 'main', path: 'dados.json' };
+            }
+            const base = auto || REPO_PADRAO;
+            return {
+                owner:  (salvo && salvo.owner)  ? salvo.owner  : base.owner,
+                repo:   (salvo && salvo.repo)   ? salvo.repo   : base.repo,
+                branch: (salvo && salvo.branch) ? salvo.branch : base.branch,
+                path:   (salvo && salvo.path)   ? salvo.path   : base.path,
+                token:  (salvo && salvo.token)  ? salvo.token  : ''
+            };
+        }
+        let cfg = cfgInicial();
         let nodesData = [];
         let connections = [];
         let hasDragged = false;
@@ -634,16 +655,18 @@
 
         async function loadFromGitHub() {
             setStatus('load', 'Carregando…');
-            if (cfg.owner && cfg.repo && cfg.token) {
+                        if (cfg.owner && cfg.repo) {
                 try {
-                    const r = await fetch(apiUrl(), { headers: { 'Accept': 'application/vnd.github+json', 'Cache-Control': 'no-cache' } });
+                    const hdrs = { 'Accept': 'application/vnd.github+json', 'Cache-Control': 'no-cache' };
+                    if (cfg.token) hdrs['Authorization'] = 'Bearer ' + cfg.token;
+                    const r = await fetch(apiUrl() + '&t=' + Date.now(), { headers: hdrs });
                     if (r.ok) {
                         const j = await r.json();
                         const data = JSON.parse(decodeB64(j.content));
                         nodesData = data.nodesData || [];
                         connections = data.connections || [];
                         localStorage.setItem(LS_CACHE, JSON.stringify({ nodesData, connections }));
-                        setStatus('ok', 'Sincronizado · GitHub');
+                        setStatus('ok', cfg.token ? 'Sincronizado · GitHub' : 'Ao vivo · GitHub');
                         renderAll(); return;
                     }
                     if (r.status === 404) setStatus('warn', 'Conectado · aguardando 1ª publicação');
